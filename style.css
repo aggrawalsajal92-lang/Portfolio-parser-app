@@ -1,0 +1,101 @@
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #eef1f7; color: #2d3748; min-height: 100vh; }
+
+/* ── Navbar ── */
+.navbar { background: #1a2340; color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 56px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+.brand  { font-size: 18px; font-weight: 700; }
+.brand span { color: #4f8ef7; }
+.nav-links { display: flex; gap: 24px; font-size: 13px; opacity: 0.7; }
+.nav-links .active-link { opacity: 1; color: #4f8ef7; font-weight: 600; }
+
+/* ── Page Header ── */
+.page-header { background: linear-gradient(135deg, #1a2340, #2e4080); color: #fff; padding: 30px 32px 24px; text-align: center; }
+.page-header h1 { font-size: 24px; font-weight: 700; margin-bottom: 6px; }
+.page-header p  { font-size: 13px; opacity: 0.75; }
+
+/* ── Progress Bar ── */
+.progress-bar { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 13px 0; }
+.progress-inner { max-width: 960px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: center; }
+.pb-step { display: flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; color: #a0aec0; }
+.pb-step.active { color: #2e4080; }
+.pb-step.done   { color: #38a169; }
+.pb-num { width: 24px; height: 24px; border-radius: 50%; background: #e2e8f0; color: #718096; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.pb-step.active .pb-num { background: #2e4080; color: #fff; }
+.pb-step.done   .pb-num { background: #38a169; color: #fff; }
+.pb-line { width: 52px; height: 2px; background: #e2e8f0; margin: 0 8px; }
+.pb-line.done { background: #38a169; }
+
+/* ── Layout ── */
+.main { max-width: 960px; margin: 28px auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+
+/* ── Card ── */
+.card { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.05); overflow: hidden; }
+.card-header { background: #f7f9fc; border-bottom: 1px solid #e2e8f0; padding: 13px 20px; font-size: 12px; font-weight: 700; color: #1a2340; text-transform: uppercase; letter-spacing: 0.6px; display: flex; align-items: center; gap: 8px; }
+.card-body { padding: 22px; }
+
+/* ── Form Fields ── */
+.field { margin-bottom: 16px; }
+.field label { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #4a5568; margin-bottom: 6px; }
+.optional-badge { background: #e2e8f0; color: #718096; border-radius: 10px; padding: 1px 8px; font-size: 10px; font-weight: 600; text-transform: none; letter-spacing: 0; }
+
+.field input,
+.field textarea {
+  width: 100%; padding: 11px 14px;
+  border: 1.5px solid #e2e8f0; border-radius: 8px;
+  font-size: 14px; font-family: 'Segoe UI', Arial, sans-serif;
+  color: #2d3748; background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.field input:focus,
+.field textarea:focus { border-color: #4f8ef7; box-shadow: 0 0 0 3px rgba(79,142,247,0.15); }
+.field input::placeholder,
+.field textarea::placeholder { color: #b0bec5; }
+.field textarea { height: 80px; resize: vertical; line-height: 1.6; }
+
+.hint { font-size: 11px; color: #a0aec0; margin-top: 5px; }
+.hint code { background: #eef1f7; padding: 1px 5px; border-radius: 3px; font-size: 11px; color: #4f8ef7; }
+
+/* ── Buttons ── */
+.btn-row { display: flex; gap: 10px; margin-top: 20px; }
+.btn-primary { flex: 1; padding: 12px; background: linear-gradient(135deg, #2e4080, #4f8ef7); color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: opacity 0.2s, transform 0.1s; }
+.btn-primary:hover  { opacity: 0.9; }
+.btn-primary:active { transform: scale(0.99); }
+.btn-secondary { padding: 12px 18px; background: #fff; color: #718096; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 14px; cursor: pointer; transition: background 0.15s; }
+.btn-secondary:hover { background: #f7f9fc; }
+
+/* ── Empty State ── */
+.empty-state { text-align: center; padding: 48px 20px; color: #a0aec0; }
+.empty-state .es-icon { font-size: 44px; margin-bottom: 12px; }
+.empty-state p { font-size: 13px; line-height: 1.7; }
+
+/* ── Resume Preview Card ── */
+.resume-card { border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
+.resume-card-top { background: linear-gradient(135deg, #1a2340, #2e4080); color: #fff; padding: 22px 24px; }
+.rc-name { font-size: 20px; font-weight: 700; margin-bottom: 8px; word-break: break-word; }
+.rc-meta { font-size: 12px; opacity: 0.85; display: flex; flex-wrap: wrap; gap: 14px; }
+.rc-meta span { display: flex; align-items: center; gap: 5px; }
+.resume-card-body { padding: 18px 24px; }
+.rc-section { margin-bottom: 16px; }
+.rc-section:last-child { margin-bottom: 0; }
+.rc-section-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.7px; color: #718096; margin-bottom: 8px; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; }
+.rc-value { font-size: 14px; color: #1a2340; font-weight: 500; line-height: 1.6; word-break: break-word; }
+
+/* ── Skill Tags ── */
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag  { background: #e8eeff; color: #2e4080; border-radius: 20px; padding: 4px 13px; font-size: 12px; font-weight: 600; }
+
+/* ── JSON Block ── */
+.json-toggle { font-size: 12px; color: #4f8ef7; cursor: pointer; text-decoration: underline; margin-top: 14px; display: inline-block; }
+#json-block  { display: none; margin-top: 10px; background: #1a2340; color: #a8d8a8; border-radius: 8px; padding: 16px; font-family: 'Courier New', monospace; font-size: 12.5px; white-space: pre-wrap; line-height: 1.6; }
+
+/* ── Footer ── */
+footer { text-align: center; padding: 20px; font-size: 12px; color: #a0aec0; }
+
+/* Shake animation for empty-submit feedback */
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25%      { transform: translateX(-6px); }
+  75%      { transform: translateX(6px); }
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume Parser — HR Tools</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="brand">&#128196; HR<span>Tools</span></div>
+  <div class="nav-links">
+    <span>Dashboard</span>
+    <span class="active-link">Resume Parser</span>
+    <span>Reports</span>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<div class="page-header">
+  <h1>&#128203; Resume Parser</h1>
+  <p>Enter your information below — fill in as much or as little as you like</p>
+</div>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar">
+  <div class="progress-inner">
+    <div class="pb-step active" id="ps1"><div class="pb-num">1</div> Your Info</div>
+    <div class="pb-line" id="pl1"></div>
+    <div class="pb-step" id="ps2"><div class="pb-num">2</div> Parse</div>
+    <div class="pb-line" id="pl2"></div>
+    <div class="pb-step" id="ps3"><div class="pb-num">3</div> Result</div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- LEFT: Form -->
+  <div class="card">
+    <div class="card-header">&#9998; Your Details</div>
+    <div class="card-body">
+
+      <div class="field">
+        <label for="f-name">&#128100; Full Name</label>
+        <input type="text" id="f-name" placeholder="e.g. John Doe" autocomplete="name" />
+        <div class="hint">Your first and last name</div>
+      </div>
+
+      <div class="field">
+        <label for="f-email">&#128231; Email Address</label>
+        <input type="text" id="f-email" placeholder="e.g. john@gmail.com" autocomplete="email" />
+        <div class="hint">Your contact email</div>
+      </div>
+
+      <div class="field">
+        <label for="f-phone">&#128222; Phone Number</label>
+        <input type="text" id="f-phone" placeholder="e.g. 9876543210 or +91-9876543210" autocomplete="tel" />
+        <div class="hint">Your mobile or work number</div>
+      </div>
+
+      <div class="field">
+        <label for="f-skills">&#128295; Skills</label>
+        <input type="text" id="f-skills" placeholder="e.g. Python, SQL, Excel, Power BI" />
+        <div class="hint">Separate skills with a comma</div>
+      </div>
+
+      <div class="field">
+        <label for="f-education">&#127891; Education</label>
+        <input type="text" id="f-education" placeholder="e.g. B.Tech Computer Science, 2024" />
+        <div class="hint">Your degree, field of study, or institution</div>
+      </div>
+
+      <div class="field">
+        <label for="f-summary">&#128221; Summary <span class="optional-badge">Optional</span></label>
+        <textarea id="f-summary" placeholder="e.g. Motivated software developer with 2 years of experience..."></textarea>
+        <div class="hint">A short professional summary about yourself</div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-primary" onclick="buildResume()">&#128269;&nbsp; Parse My Resume</button>
+        <button class="btn-secondary" onclick="clearForm()">&#10005; Clear</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT: Output -->
+  <div class="card">
+    <div class="card-header">&#9989; Parsed Result</div>
+    <div class="card-body">
+
+      <div class="empty-state" id="emptyState">
+        <div class="es-icon">&#128203;</div>
+        <p>Fill in your details on the left<br>and click <strong>Parse My Resume</strong><br>to see your structured resume here.</p>
+      </div>
+
+      <div id="resumeCard" style="display:none;">
+        <div class="resume-card">
+          <div class="resume-card-top">
+            <div class="rc-name" id="rc-name"></div>
+            <div class="rc-meta">
+              <span id="rc-email-wrap" style="display:none;">&#128231; <span id="rc-email"></span></span>
+              <span id="rc-phone-wrap" style="display:none;">&#128222; <span id="rc-phone"></span></span>
+            </div>
+          </div>
+          <div class="resume-card-body">
+            <div class="rc-section" id="sec-summary" style="display:none;">
+              <div class="rc-section-title">&#128221; Summary</div>
+              <div class="rc-value" id="rc-summary"></div>
+            </div>
+            <div class="rc-section" id="sec-education" style="display:none;">
+              <div class="rc-section-title">&#127891; Education</div>
+              <div class="rc-value" id="rc-education"></div>
+            </div>
+            <div class="rc-section" id="sec-skills" style="display:none;">
+              <div class="rc-section-title">&#128295; Skills</div>
+              <div class="tags" id="rc-skills"></div>
+            </div>
+          </div>
+        </div>
+
+        <span class="json-toggle" id="jsonToggle" onclick="toggleJSON()">&#123;&#125; View raw JSON</span>
+        <pre id="json-block"></pre>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>Resume Parser &mdash; HR Tools &copy; 2025</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
